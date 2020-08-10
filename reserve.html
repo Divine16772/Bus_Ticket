@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve</title>
+    <link rel="stylesheet" href="./css/Components.css">
+    <link rel="stylesheet" href="./css/Home.css">
+    <link rel="stylesheet" href="./css/reserve.css">
+</head>
+<body>
+    <header class="header" style="position: relative;">
+        <section class="toolbar">
+            <div class="logo"><img src="./images/logo.png"  alt=""></div>
+            <div class="nav">
+                <ul>
+                    <li class="active">Home</li>
+                    <li>Contact</li>
+                    <li>About</li>
+                    <li>Reviews</li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <main><br/><br/>
+        <label class="label details">
+            Reservation Details
+        </label><br/>
+        <section class="card reserve-card">
+            <section class="card-header" >Your information</section>
+            <section class="card-content">
+                <div id="info">
+
+                </div>
+            </section>
+        </section>
+        <section class="card reserve-card">
+            <section class="card-header" >Pricing information</section>
+            <section class="card-content">
+               <label class="label amount">Tiko - <label id="destination"></label> <label id="categor"></label> : <label class="money"> 25000FCFA</label></label>
+            </section>
+        </section>
+        <div class="confirm">
+            <button class="button danger final" onclick="spin()">CONFIRM RESERVATION </button>
+        </div>
+        <section>
+            <div class="isloading load">
+                <img id="spinner" src="./images/spinner.jpg" alt=""><span> Creating Your Reservation</span>
+             </div>
+             <div class="isloading-container load">
+            </div>  
+        </section>
+       
+    </main>
+</body>
+<script src="./js/jquery-3.4.1.js"></script>
+<script src="./js/reserve.js"></script>
+<script>
+    const prices=[{name:"kumba",price:1000}, {name:"yaounde",price:5000},{name:"buea",price:1000}, {name:"bamenda",price:7000}, {name:"ngoundere",price:20000}, {name:"douala",price:2000},{name: "limbe",price:1000},{name: "mamfe",price:4000},{name: "edea",price:3000},{name: "tiko",price:800},{name:"ebolowa",price:30000},{name:"adamawa",price:2000}]
+
+    names=["Destination", "Time", "Category", "Phone number ", "Email", "Id number"];
+    values=JSON.parse(localStorage.getItem("reserve"));
+    console.log(values)
+     $("#info").html(values.map((info, index)=>`<div  class='info-col ${(index%2)? 'odd':'even'}'>${names[index]}</div><div class='info-col ${(index%2)? 'odd':'even'}'>${info}</div><div class='info-col ${(index%2)? 'odd':'even'}'></div>`))
+    let result= prices.filter(item=>item.name==values[0]);
+     switch(values[2]){
+        case "normal":$(".money").html(result[0].price+"FCFA"); break
+        case "V.I.P":$(".money").html(vip(+result[0].price)+"FCFA"); break
+        case "First class":$(".money").html(firstclass(+result[0].price)+"FCFA"); break
+     }
+     $("#destination").html(values[0]);
+     $("#categor").html(values[2])
+    //  console.log(l)
+</script>
+</html>

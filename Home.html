@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="refresh" content="">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/Components.css">
+    <link rel="stylesheet" href="./css/Home.css">
+</head>
+
+<body>
+    <header class="header">
+        <section class="toolbar">
+            <div class="logo"><img src="./images/logo.png"  alt=""></div>
+            <div class="nav">
+                <ul>
+                    <li class="active">Home</li>
+                    <li>Contact</li>
+                    <li>About</li>
+                    <li>Reviews</li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="hero">
+            <img class="img hero-img" src="./images/bus (1).jpg" />
+        </section>
+        <section>
+            <div class="card reserve step1">
+                <div class="card-header">
+                    <label for="" class="label">Reserve a Bus</label>
+                </div>
+                <form onsubmit="event.preventDefault(); goToNext()">
+                    <div class="card-content">
+
+                        <label>Destination</label>
+                        <input required id='dest-input' oninput="suggest(event)" onfocus="suggest(event)" autofocus
+                            autocomplete="off" type="text" placeholder="Enter Destination" class="input">
+                        <label>Time</label>
+                        <input required id="time-input" type="text" onfocus="suggest(event)" oninput="suggest(event)"
+                            placeholder="Departure Time" autocomplete="off" class="input">
+                        <label>Category</label>
+                        <input required id="cat-input" type="text" onfocus="suggest(event)" oninput="suggest(event)"
+                            placeholder="Category" autocomplete="off" class="input">
+                    </div>
+                    <button class="button right">NEXT</button>
+                </form>
+            </div>
+            <div class="card reserve step2">
+                <form id="form2" action="./reserve.html">
+                    <div class="card-header">
+                        <label for="" class="label" id='dest'></label>
+                        <img class="hero-img" src="./images/bus (1).jpg" />
+                    </div>
+                    <div class="card-content">
+                        <label>Phone number</label>
+                        <input required maxlength="11" autofocus type="number" autocomplete="off"
+                            placeholder="Phone Number" class="input">
+                        <label>Email</label><small> *optional</small>
+                        <input type="email" autocomplete="off" placeholder="example@gmail.com" class="input">
+                        <label>Identification</label>
+                        <input required type="number" autocomplete="off" placeholder="id card number" class="input">
+                    </div>
+                    <button id="form2submit" style="display: none;"></button>
+                </form>
+                <span><button class="button danger" style="margin-top: -50px;" onclick="goBack()">Back</button></span>
+                <button class="button right" onclick="confirmReserve()">DONE</button>
+            </div>
+        </section>
+       
+        <section class="welcome">
+            <label>Welcome to <b style="color:rgb(10, 20, 53)">Passion Bus Agency</b></label> ~
+            <label>We believe in being Different</label>
+        </section>
+        <section class="search-result dest">
+        </section>
+        <section class="search-result time">
+        </section>
+        <section class="search-result cat">
+        </section>
+    </main>
+    <div id="content"></div>
+</body>
+<script src="./js/jquery-3.4.1.js">
+</script>
+<script src="./js/home.js"></script>
+<script src="./js/reserve.js"></script>
+<script>
+  </script>
+
+</html>

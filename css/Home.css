@@ -1,0 +1,145 @@
+body{
+    height: 300px;
+}
+header.header{
+    background-color: rgb(10, 20, 53);
+    color: white;
+    opacity: 0.97;
+}
+label.blue{
+    color: rgb(10, 20, 53);
+}
+header section.toolbar{
+    display: flex;
+}
+ul li {
+    display: inline;
+}
+.logo{
+    flex: 1;
+}
+.nav{
+    flex: 2;
+    }
+.nav ul{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+
+}
+.hero img.img{
+  width: 100%;
+  
+}
+.welcome{
+    margin:auto;
+    margin-top: -160px;
+    text-align: center;
+    font-size: 23px;
+}
+.logo img{
+    width: 150px;
+    
+}
+.card.reserve{
+    transform: translateY(-1000px);
+    background-color: white;
+    opacity: 0.97;
+    width: 80%;
+    align-items: center;
+    background-color: rgb(10, 20, 53);
+    color: white;
+    transition: all 2s;
+    transition-timing-function: ease-out;
+    
+}
+.card.reserve .card-header{
+    padding: 30px 0 0 20px ;
+   
+}
+.reserve .card-content input,select{
+    display: block;
+    margin-bottom: 30px;
+}
+.reserve button.button{
+    margin-left:40px ;
+}
+.reserve button.button.right{
+    position: relative;
+    left: 60%;
+    margin-bottom: 30px;
+   
+}
+select{
+    border-radius: 10px;
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+    margin-left: 20px;
+}
+select option{
+    padding: 15px;
+    display: block;
+    font-size: 15px;
+}
+.reserve button.button:hover{
+    opacity: 0.89;
+    cursor: pointer;
+}
+
+.card.reserve.step2{
+   transform:translateX(-2000px);
+   transition: all 2s;
+   display: none;
+}
+
+.item.link:hover{
+    opacity: 0.78;
+    background-color: grey;
+    color: orange;
+    
+}
+.three-colon-grid{
+ display: grid;
+ grid-template-columns: auto auto auto auto;
+ 
+}
+@media (min-width:400px){
+    .reserve .card-content input,select{
+        width: 80%;
+    
+    }
+    .card.reserve.step2{
+        width: 60%;
+      }
+     
+}
+
+
+@media (max-width:600px){
+    .card.reserve{
+        width: 95%;
+        margin: auto;
+       
+    }
+    .reserve.card.step1{
+    margin-top: 100px;
+    }
+    .reserve button.button{
+        position: relative;
+        left: 0;
+        margin:none;
+       
+    }
+    .reserve button.button.right{
+        position: relative;
+        left: 0;
+        margin:none;
+    }
+    ul li {
+        display: none;
+    }
+    #isloading-container{
+       width: 150%;
+       height: 170%;
+    }
+}
